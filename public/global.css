@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+  --base-grid: 16px;
+  --base-radius: 8px;
+  --base-bg: #ffffff;
+	--base-color: #20123a;
+	--base-secondary: #ddd;
+	--base-tertiary: #eee;
+	--base-box-stroke-none: none;
+	--base-box-stroke-thin: 0 0 0 2px var(--base-secondary);
+	--base-box-stroke-thick: 0 0 0 4px var(--base-secondary);
+	--base-box-shadow-high: 0 5px 24px var(--base-secondary);
+  --base-fly-box-shadow: 0 0 18px rgba(12, 12, 13, .1), 0 0 0 1px rgba(12, 12, 13, .1);
+}
+
+body {
+  margin: 0 !important;
+  padding: 0;
+	position: relative;
+	font-family: inter, sans-serif;
+}
+
+main {
+	color: var(--base-color);
+}
+
+main[data-text='bright'] {
+	--base-color: white;
+	display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: metropolis, sans-serif;
+}

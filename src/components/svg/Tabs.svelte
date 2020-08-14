@@ -1,0 +1,17 @@
+<style>
+  svg {
+    stroke: var(--base-tertiary);
+  }
+</style>
+
+<svg width="29" height="18" xmlns="http://www.w3.org/2000/svg">
+  <g
+    stroke-width="2"
+    fill="none"
+    fill-rule="evenodd"
+    stroke-linecap="round">
+    <path
+      d="M1 17h1a2 2 0 002-2V3a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 002 2h1M22.5
+      2h.5a2 2 0 012 2v11a2 2 0 002 2h1" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+{
+  "name": "svelte-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@storybook/addon-actions": "^6.0.5",
+    "@storybook/addon-essentials": "^6.0.5",
+    "@storybook/addon-links": "^6.0.5",
+    "@storybook/svelte": "^6.0.5",
+    "babel-loader": "^8.1.0",
+    "react-is": "^16.13.1",
+    "rollup": "^2.3.4",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.24.1",
+    "svelte-loader": "^2.13.6"
+  },
+  "dependencies": {
+    "sirv-cli": "^1.0.0"
+  }
+}

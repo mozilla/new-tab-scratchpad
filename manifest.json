@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "New Tab Playground",
+  "description": "A place to play",
+  "version": "0.0.1",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "public/index.html"
+  },
+  "permissions": ["<all_urls>", "tabs", "history", "bookmarks", "theme", "storage"]
+}
