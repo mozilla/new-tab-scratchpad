@@ -1,6 +1,7 @@
 <script>
-  import { colorway } from "./../../stores";
+  import { colorway, bgImage } from "./../../stores";
   export let box = "64px";
+  $: fill = $bgImage.accentColor !== undefined ? $bgImage.accentColor : $colorway.newTab.accentColor;
 </script>
 
 <div style="width: {box}; height: {box}">
@@ -8,7 +9,7 @@
     id="Assets"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
-    fill={$colorway.newTab.accentColor}>
+    fill={fill}>
     <path
       d="M190.368 150.591c0.157 0.009 0.079 0.003 0 0zm-57.874-28.933c0.158
       0.008 0.079 0.003 0 0zm346.228

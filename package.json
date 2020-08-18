@@ -1,6 +1,6 @@
 {
-  "name": "New_Tab_Playground",
-  "version": "1.0.0",
+  "name": "New_Tab_Scratchpad",
+  "version": "0.0.2",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",

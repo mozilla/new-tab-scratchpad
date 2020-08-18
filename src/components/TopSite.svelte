@@ -15,6 +15,14 @@
     cursor: pointer;
   }
 
+  .top-site__icon[data-brighttext=true] {
+    --primary-element-color: white !important;
+  }
+
+  .top-site__icon[data-brighttext=false] {
+    --primary-element-color: var(--base-color) !important;
+  }
+
   .top-site:hover .top-site__icon {
     box-shadow: var(--box-hover-outline);
   }
@@ -47,7 +55,7 @@
 </style>
 
 <div class="top-site" on:click={handleClick} style="--accentColor: {$colorway.newTab.accentColor}">
-  <div class="top-site__icon" href={url} >
+  <div class="top-site__icon" href={url} data-brighttext={$colorway.newTab.brightText}>
     {#if title && icon === null}{title.charAt(0)}{/if}
   </div>
 

@@ -12,3 +12,7 @@ export const setBrowserTheme = (browserTheme) => {
 export const storeColorwayIndex = (index) => {
   browser.storage.local.set({colorwayIndex: index});
 }
+
+export const storeBgImageIndex = (index) => {
+  browser.storage.local.set({ bgImageIndex: index });
+};

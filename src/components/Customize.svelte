@@ -1,7 +1,7 @@
 <script>
-  import { colorways } from "./../data";
-  import { setBrowserTheme, storeColorwayIndex } from "./../sideEffects";
-  import { colorway } from "./../stores";
+  import { colorways, bgImages } from "./../data";
+  import { setBrowserTheme, storeColorwayIndex, storeBgImageIndex } from "./../sideEffects";
+  import { colorway, bgImage } from "./../stores";
 
   import { fade, fly } from "svelte/transition";
 
@@ -19,6 +19,11 @@
     colorway.update(() => colorways[index]);
     setBrowserTheme(colorways[index].browserTheme);
     storeColorwayIndex(index);
+  };
+
+  const handleBgImageClick = index => {
+    bgImage.update(() => bgImages[index]);
+    storeBgImageIndex(index);
   };
 </script>
 
@@ -69,6 +74,20 @@
     grid-template-rows: repeat(auto-fit, 84px);
   }
 
+  .images {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    grid-gap: 6%;
+    margin-bottom: 48px;
+  }
+
+  .image-preview {
+    background-size: cover;
+    border-radius: var(--base-radius);
+    overflow: hidden;
+    height: 96px;
+  }
+
   .colorway-preview {
     border-radius: var(--base-radius);
     display: flex;
@@ -79,8 +98,9 @@
     box-shadow: 0 0 0 2px rgba(12, 12, 13, 0.1) inset;
   }
 
-  .colorway-preview:hover {
-    box-shadow: 0 0 0 4px rgba(12, 12, 13, .2);
+  .colorway-preview:hover,
+  .image-preview:hover {
+    box-shadow: 0 0 0 4px rgba(12, 12, 13, 0.2);
   }
 
   .frame {
@@ -122,6 +142,22 @@
         <Close />
       </button>
     </header>
+
+    <div class="images">
+      {#each bgImages as bgImage, index}
+        {#if bgImage.image === null}
+          <div
+            class="image-preview"
+            style="background-color:{$colorway.newTab.backgroundColor}"
+            on:click={() => handleBgImageClick(index)} />
+        {:else}
+          <div
+            class="image-preview"
+            style="background-image:{bgImage.image}; background-position: {bgImage.position}"
+            on:click={() => handleBgImageClick(index)} />
+        {/if}
+      {/each}
+    </div>
 
     <div class="colorways">
       {#each colorways as cw, index}

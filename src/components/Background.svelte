@@ -1,5 +1,5 @@
 <script>
-  import { colorway } from "./../stores";
+  import { colorway, bgImage } from "./../stores";
 </script>
 
 <style>
@@ -13,9 +13,15 @@
     bottom: 0;
     z-index: -1;
     background-color: var(--bg-color);
-    /* background-image: var(--bg-image); */
-    background-position: center 60%;
   }
 </style>
 
-<div style="--bg-color: {$colorway.newTab.backgroundColor};" />
+{#if bgImage.mage === null}
+  <div style="--bg-color: {$colorway.newTab.backgroundColor};" />
+{:else}
+  <div style={`
+    --bg-color: ${$colorway.newTab.backgroundColor};
+    background-image: ${$bgImage.image};
+    background-position: ${$bgImage.position};
+  `}/>
+{/if}

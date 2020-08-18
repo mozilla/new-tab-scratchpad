@@ -6,17 +6,19 @@
   import Customize from "./components/Customize.svelte";
   import {onMount} from 'svelte';
 
-  import { colorway } from "./stores";
-  import { colorways, topSites } from './data'
+  import { colorway, bgImage } from "./stores";
+  import { colorways, topSites, bgImages } from './data'
 
+  $: brightText = $bgImage.brightText || (typeof $bgImage.brightText === 'undefined' && $colorway.newTab.brightText);
   // initialize app
   onMount(async () => {
     if (browser !== 'undefined') {
       const res = await browser.storage.local.get();
-      const { colorwayIndex } = res;
-      if(colorwayIndex === undefined) return;
+      const { colorwayIndex, bgImageIndex } = res;
+      if(typeof colorwayIndex === 'undefined') return;
       else {
-        colorway.update(() => colorways[colorwayIndex])
+        colorway.update(() => colorways[colorwayIndex]);
+        bgImage.update(() => bgImages[bgImageIndex]);
       }
     }
   });
@@ -50,7 +52,7 @@
   }
 </style>
 
-<main data-brighttext={$colorway.newTab.brightText}>
+<main data-brighttext={brightText}>
   <Background />
   <div class="h-group">
     <FirefoxLogo box="96px" />
