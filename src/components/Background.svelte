@@ -1,6 +1,5 @@
 <script>
-  import { theme } from "./../stores";
-
+  import { colorway } from "./../stores";
 </script>
 
 <style>
@@ -14,9 +13,9 @@
     bottom: 0;
     z-index: -1;
     background-color: var(--bg-color);
-    background-image: var(--bg-image);
+    /* background-image: var(--bg-image); */
+    background-position: center 60%;
   }
 </style>
 
-<div style="--bg-color: {$theme.primary}; --bg-image: {$theme.image}">
-</div>
+<div style="--bg-color: {$colorway.newTab.backgroundColor};" />

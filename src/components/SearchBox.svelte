@@ -4,8 +4,6 @@
   export let hasFocus = false;
   export let handoffToOmnibar = false;
 
-  import { theme } from './../stores';
-
   const handleClick = () => {
     hasFocus = true;
   }
@@ -25,18 +23,20 @@
 
 <style>
   .search-box {
-    background: #fffa;
+    background: var(--search-box-background);
     border-radius: var(--base-radius);
     display: flex;
     box-shadow: 0 5px 24px #0004;
     height: calc(var(--base-grid) * 3);
     max-width: calc(100vw - 64px);
-    transition: box-shadow 250ms;
+    transition: box-shadow 250ms, background 250ms, transform 75ms ease-out;
     width: 800px;
   }
 
   .search-box.focus {
-    box-shadow: 0 5px 24px #0004;
+    box-shadow: 0 5px 32px #0004;
+    transform: scale(1.03);
+    background: #fff;
   }
 
   .search-box__provider {
@@ -59,7 +59,7 @@
 </style>
 
 {#if !handoffToOmnibar}
-<div class="search-box {hasFocus ? 'focus' : ''}" on:click={handleClick} transition:fade={{duration: 125}}>
+<div class="search-box {hasFocus ? 'focus' : ''}" on:click={handleClick}>
   <div class="search-box__provider"></div>
   <input class="search-box__input" type="text" placeholder={placeholder} on:blur={handleBlur} on:keydown={handleChange}/>
 </div>

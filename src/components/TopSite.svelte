@@ -1,8 +1,8 @@
 <script>
-  import { theme } from "./../stores";
   export let url = "https://example.com";
   export let icon = null;
   export let title = "example";
+  import { colorway } from './../stores';
 
   const handleClick = () => {
     window.location.href = url;
@@ -16,7 +16,7 @@
   }
 
   .top-site:hover .top-site__icon {
-    box-shadow: var(--base-box-stroke-thin), var(--base-box-shadow-high);
+    box-shadow: var(--box-hover-outline);
   }
 
   .top-site__icon {
@@ -27,25 +27,27 @@
     border-radius: var(--base-radius);
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: var(--base-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
     font-family: metropolis, sans-serif;
     font-size: 32px;
+    color: var(--primary-element-color);
+    background-color: var(--accentColor);
   }
 
   h4 {
     margin: var(--base-grid) 0 0;
+    color: var(--primary-element-color);
     text-align: center;
     font-weight: normal;
     font-size: 14px;
   }
 </style>
 
-<div class="top-site" style="--base-box-stroke-thin: {$theme.secondary}" on:click={handleClick}>
-  <div class="top-site__icon" href={url} style="background-color: {$theme.secondary}">
+<div class="top-site" on:click={handleClick} style="--accentColor: {$colorway.newTab.accentColor}">
+  <div class="top-site__icon" href={url} >
     {#if title && icon === null}{title.charAt(0)}{/if}
   </div>
 

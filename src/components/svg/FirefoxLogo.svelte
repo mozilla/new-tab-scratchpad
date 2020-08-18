@@ -1,5 +1,5 @@
 <script>
-  import { theme } from "./../../stores";
+  import { colorway } from "./../../stores";
   export let box = "64px";
 </script>
 
@@ -8,7 +8,7 @@
     id="Assets"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
-    fill={$theme.secondary}>
+    fill={$colorway.newTab.accentColor}>
     <path
       d="M190.368 150.591c0.157 0.009 0.079 0.003 0 0zm-57.874-28.933c0.158
       0.008 0.079 0.003 0 0zm346.228

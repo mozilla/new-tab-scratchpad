@@ -1,7 +1,7 @@
 <script>
-  import { colorWays } from './../data';
-  import { setBrowserTheme, storeColorWay } from './../sideEffects';
-  import { theme } from './../stores';
+  import { colorways } from "./../data";
+  import { setBrowserTheme, storeColorwayIndex } from "./../sideEffects";
+  import { colorway } from "./../stores";
 
   import { fade, fly } from "svelte/transition";
 
@@ -15,14 +15,11 @@
     showSettings = !showSettings;
   };
 
-  const handleColorWayClick = (colorWay, index) => {
-    setBrowserTheme(colorWay);
-    storeColorWay(index);
-    $theme.brightText = colorWay.brightText;
-    $theme.primary = colorWay.primary;
-    $theme.secondary = colorWay.secondary;
-    $theme.tertiary = colorWay.tertiary == null ? colorWay.secondary : colorWay.tertiary;
-  }
+  const handleColorwayClick = index => {
+    colorway.update(() => colorways[index]);
+    setBrowserTheme(colorways[index].browserTheme);
+    storeColorwayIndex(index);
+  };
 </script>
 
 <style>
@@ -67,27 +64,41 @@
 
   .colorways {
     display: grid;
-    grid-gap: 16px;
-    grid-template-columns: repeat(auto-fit, 90px);
-    grid-template-rows: repeat(auto-fit, 90px);
+    grid-gap: 22px;
+    grid-template-columns: repeat(auto-fit, 84px);
+    grid-template-rows: repeat(auto-fit, 84px);
   }
 
-  .colorway {
+  .colorway-preview {
     border-radius: var(--base-radius);
     display: flex;
     flex-direction: column;
-    height: 90px;
+    height: 84px;
     overflow: hidden;
-    width: 90px;
-    box-shadow: 0 0 0 2px rgba(12, 12, 13, .1) inset;
+    width: 84px;
+    box-shadow: 0 0 0 2px rgba(12, 12, 13, 0.1) inset;
   }
 
-  .colorway div:first-child {
-    flex: 0 0 30px;
+  .colorway-preview:hover {
+    box-shadow: 0 0 0 4px rgba(12, 12, 13, .2);
   }
 
-  .colorway div:nth-child(2) {
+  .frame {
+    flex: 0 0 24px;
+  }
+
+  .page {
     flex: 1;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .element {
+    border-radius: calc(var(--base-radius) * 0.5);
+    height: 16px;
+    width: 90%;
   }
 </style>
 
@@ -96,23 +107,33 @@
     class="settings-toggle"
     on:click={handleSettingsToggle}
     transition:fade={{ duration: 150 }}>
-    <Settings color={$theme.tertiary} />
+    <Settings />
   </button>
 {/if}
 
 {#if showSettings}
   <div class="settings" transition:fly={{ duration: 250, x: 400 }}>
-    <button
-      class="settings-close"
-      on:click={handleSettingsToggle}
-      transition:fade={{ duration: 150 }}>
-      <Close color={$theme.tertiary} />
-    </button>
+    <header>
+      <h3>Quick Customize</h3>
+      <button
+        class="settings-close"
+        on:click={handleSettingsToggle}
+        transition:fade={{ duration: 150 }}>
+        <Close />
+      </button>
+    </header>
+
     <div class="colorways">
-      {#each colorWays as colorWay, index}
-        <div class="colorway" on:click={() => handleColorWayClick(colorWay, index)}>
-          <div style="background: {colorWay.tertiary ? colorWay.tertiary : colorWay.secondary}"/>
-          <div style="background: {colorWay.primary}"/>
+      {#each colorways as cw, index}
+        <div
+          class="colorway-preview"
+          on:click={() => handleColorwayClick(index)}>
+          <div
+            class="frame"
+            style="background: {cw.browserTheme.colors.frame}" />
+          <div class="page" style="background: {cw.newTab.backgroundColor}">
+            <div class="element" style="background: {cw.newTab.accentColor}" />
+          </div>
         </div>
       {/each}
     </div>

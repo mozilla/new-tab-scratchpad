@@ -1,12 +1,13 @@
 {
-  "name": "svelte-app",
+  "name": "New_Tab_Playground",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-extension": "web-ext build --overwrite-dest"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -23,7 +24,8 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.24.1",
-    "svelte-loader": "^2.13.6"
+    "svelte-loader": "^2.13.6",
+    "web-ext": "^5.0.0"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"

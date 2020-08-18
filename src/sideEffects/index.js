@@ -1,26 +1,14 @@
-export const setBrowserTheme = (args) => {
-
-  const { type, primary, brightText } = args;
-
+export const setBrowserTheme = (browserTheme) => {
+  const { type, colors  } = browserTheme;
   if (type === 'default') {
     browser.theme.reset();
   }
 
   if (type === 'custom') {
-    const theme = {
-      colors: {
-        frame: primary
-      }
-    }
-
-    browser.theme.update({...theme})
+    browser.theme.update({colors})
   }
 }
 
-export const storeColorWay = (index) => {
-  browser.storage.local.set({colorWayIndex: index});
-}
-
-export const getColorWay = () => {
-
+export const storeColorwayIndex = (index) => {
+  browser.storage.local.set({colorwayIndex: index});
 }
