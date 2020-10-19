@@ -1,38 +1,38 @@
 export const bgImages = [
-         {
-           image: null,
-         },
-         {
-           image: "url(./images/bg-2.jpg)",
-           position: "center 60%",
-           accentColor: "#fff",
-           brightText: false,
-         },
-         {
-           image: "url(./images/bg-1.jpg)",
-           position: "center 60%",
-           accentColor: "#fff",
-           brightText: true,
-         },
-         {
-           image: "url(./images/bg-3.jpg)",
-           position: "center center",
-           accentColor: "#fff",
-           brightText: false,
-         },
-         {
-           image: "url(./images/bg-4.jpg)",
-           position: "center center",
-           accentColor: "#fff",
-           brightText: false,
-         },
-         {
-           image: "url(./images/bg-5.jpg)",
-           position: "center center",
-           accentColor: "#fff",
-           brightText: true,
-         },
-       ];
+  {
+    image: null,
+  },
+  {
+    image: "url(./images/bg-2.jpg)",
+    position: "center 60%",
+    accentColor: "#fff",
+    brightText: false,
+  },
+  {
+    image: "url(./images/bg-1.jpg)",
+    position: "center 60%",
+    accentColor: "#fff",
+    brightText: true,
+  },
+  {
+    image: "url(./images/bg-3.jpg)",
+    position: "center center",
+    accentColor: "#fff",
+    brightText: false,
+  },
+  {
+    image: "url(./images/bg-4.jpg)",
+    position: "center center",
+    accentColor: "#fff",
+    brightText: false,
+  },
+  {
+    image: "url(./images/bg-5.jpg)",
+    position: "center center",
+    accentColor: "#fff",
+    brightText: true,
+  },
+];
 
 export const colorways = [
   {
@@ -126,7 +126,7 @@ export const colorways = [
   },
 ];
 
-export const topSites = [
+export const topSitesData = [
   {
     url: "https://mail.google.com",
     title: "Gmail",
@@ -151,4 +151,8 @@ export const topSites = [
     url: "https://mana.mozilla.org/",
     title: "Mana",
   },
+  {
+    url: "https://mana.mozilla.org/",
+    title: "Mana",
+  }
 ];

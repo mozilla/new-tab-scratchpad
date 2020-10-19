@@ -1,7 +1,3 @@
-<script>
-  import { colorway, bgImage } from "./../stores";
-</script>
-
 <style>
   div {
     position: fixed;
@@ -11,17 +7,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background-image: url(../images/noodles.svg);
+    background-color: var(--body-background-color);
     z-index: -1;
-    background-color: var(--bg-color);
   }
 </style>
 
-{#if bgImage.mage === null}
-  <div style="--bg-color: {$colorway.newTab.backgroundColor};" />
-{:else}
-  <div style={`
-    --bg-color: ${$colorway.newTab.backgroundColor};
-    background-image: ${$bgImage.image};
-    background-position: ${$bgImage.position};
-  `}/>
-{/if}
+<div>
+</div>

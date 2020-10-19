@@ -1,9 +1,12 @@
 <script>
   export let url = "https://example.com";
   export let icon = null;
-  export let title = "example";
-  import { colorway } from './../stores';
+  export let title = "Example";
+  export let sponsored = false
 
+  import MeatballIcon from './svg/MeatballIcon.svelte';
+  import {randomColor} from '../utils';
+  const bg = randomColor();
   const handleClick = () => {
     window.location.href = url;
   }
@@ -11,53 +14,80 @@
 
 <style>
   .top-site {
-    width: calc(var(--base-grid) * 6);
+    position: relative;
+    padding: var(--ts-pad) 0 0;
+    border-radius: 8px;
     cursor: pointer;
-  }
-
-  .top-site__icon[data-brighttext=true] {
-    --primary-element-color: white !important;
-  }
-
-  .top-site__icon[data-brighttext=false] {
-    --primary-element-color: var(--base-color) !important;
-  }
-
-  .top-site:hover .top-site__icon {
-    box-shadow: var(--box-hover-outline);
-  }
-
-  .top-site__icon {
-    display: block;
-    width: calc(var(--base-grid) * 6);
-    height: calc(var(--base-grid) * 6);
-    transition: box-shadow 125ms;
-    border-radius: var(--base-radius);
-    background-repeat: no-repeat;
-    background-position: center center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    font-family: metropolis, sans-serif;
-    font-size: 32px;
-    color: var(--primary-element-color);
-    background-color: var(--accentColor);
+    transition: background 125ms;
   }
 
-  h4 {
-    margin: var(--base-grid) 0 0;
-    color: var(--primary-element-color);
-    text-align: center;
-    font-weight: normal;
-    font-size: 14px;
+  .top-site:hover {
+    background: #0001;
   }
+
+  .ts-icon {
+    width: var(--ts-icon-box);
+    height: var(--ts-icon-box);
+    background: salmon;
+    border-radius: var(--base-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ts-icon-inner {
+    color: white;
+    font-size: 48px;
+    font-family: sans-serif;
+    margin-top: 8px;
+  }
+
+.ts-text {
+  font: message-box;
+  font-size: 12px;
+  margin: 8px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-sponsored {
+  opacity: .4;
+}
+.ts-control {
+  opacity: 0;
+  transition: opacity 125ms;
+  transition-delay: 250ms;
+  position: absolute;
+  transform: rotate(90deg);
+  width:  var(--ts-pad);
+  height: var(--ts-pad);
+  background-repeat: no-repeat;
+  background-position: center;
+  top: var(--ts-pad);
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-site:hover .ts-control {
+  opacity: 1;
+}
+
 </style>
 
-<div class="top-site" on:click={handleClick} style="--accentColor: {$colorway.newTab.accentColor}">
-  <div class="top-site__icon" href={url} data-brighttext={$colorway.newTab.brightText}>
-    {#if title && icon === null}{title.charAt(0)}{/if}
+<div class="top-site" on:click={handleClick}>
+  <div class="ts-icon" style={`background: ${bg}`}>
+    <div class="ts-icon-inner">{title.substr(0,1)}</div>
   </div>
-
-  <h4>{title}</h4>
+  <div class="ts-text">
+    <div class="ts-title">{title}</div>
+    {#if sponsored}<div class="ts-sponsored">Sponsored</div>{/if}
+  </div>
+  <div class="ts-control"><MeatballIcon/></div>
 </div>
+
