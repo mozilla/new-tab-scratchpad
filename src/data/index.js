@@ -1,131 +1,3 @@
-export const bgImages = [
-  {
-    image: null,
-  },
-  {
-    image: "url(./images/bg-2.jpg)",
-    position: "center 60%",
-    accentColor: "#fff",
-    brightText: false,
-  },
-  {
-    image: "url(./images/bg-1.jpg)",
-    position: "center 60%",
-    accentColor: "#fff",
-    brightText: true,
-  },
-  {
-    image: "url(./images/bg-3.jpg)",
-    position: "center center",
-    accentColor: "#fff",
-    brightText: false,
-  },
-  {
-    image: "url(./images/bg-4.jpg)",
-    position: "center center",
-    accentColor: "#fff",
-    brightText: false,
-  },
-  {
-    image: "url(./images/bg-5.jpg)",
-    position: "center center",
-    accentColor: "#fff",
-    brightText: true,
-  },
-];
-
-export const colorways = [
-  {
-    newTab: {
-      brightText: false,
-      backgroundColor: "rgb(249, 249, 250)",
-      accentColor: "#d4d4d6",
-    },
-    browserTheme: {
-      type: "default",
-      colors: {
-        frame: "#626262",
-      },
-    },
-  },
-  {
-    newTab: {
-      brightText: false,
-      backgroundColor: "#f3d5ce",
-      accentColor: "#e19e8f",
-    },
-    browserTheme: {
-      type: "custom",
-      colors: {
-        toolbar: "#f3d5ce",
-        frame: "#e19e8f",
-      },
-    },
-  },
-  {
-    newTab: {
-      brightText: true,
-      backgroundColor: "#47659C",
-      accentColor: "rgb(39, 71, 121)",
-    },
-    browserTheme: {
-      type: "custom",
-      colors: {
-        frame: "rgb(39, 71, 121)",
-        toolbar: "#47659C",
-        tab_text: "white",
-        tab_background_text: "white",
-      },
-    },
-  },
-  {
-    newTab: {
-      brightText: true,
-      backgroundColor: "#400548",
-      accentColor: "rgb(117, 41, 101)",
-    },
-    browserTheme: {
-      type: "custom",
-      colors: {
-        toolbar: "rgb(117, 41, 101)",
-        frame: "#400548",
-        tab_text: "white",
-        tab_background_text: "white",
-      },
-    },
-  },
-  {
-    newTab: {
-      brightText: false,
-      backgroundColor: "#FAF6F0",
-      accentColor: "rgb(238, 215, 187)",
-    },
-    browserTheme: {
-      type: "custom",
-      colors: {
-        frame: "rgb(238, 215, 187)",
-        toolbar: "#FAF6F0",
-      },
-    },
-  },
-  {
-    newTab: {
-      brightText: true,
-      backgroundColor: "#434255",
-      accentColor: "rgb(86, 93, 119)",
-    },
-    browserTheme: {
-      type: "custom",
-      colors: {
-        frame: "rgb(86, 93, 119)",
-        toolbar: "#434255",
-        tab_text: "white",
-        tab_background_text: "white",
-      },
-    },
-  },
-];
-
 export const topSitesData = [
   {
     url: "https://mail.google.com",
@@ -154,5 +26,29 @@ export const topSitesData = [
   {
     url: "https://mana.mozilla.org/",
     title: "Mana",
+  }
+];
+
+export const pocketData = [
+  {
+    url: "fastcompany.com",
+    img: './public/images/pocket-dummy/blubes.jpg',
+    title: "What Happened When I Ate The Best Brain Foods For A Week",
+    excerpt:
+      "This is what cutting out sugar and dairy and eating lots of fish and blueberries did to my productivity.",
+  },
+  {
+    url: "fastcompany.com",
+    img: './public/images/pocket-dummy/blubes.jpg',
+    title: "What Happened When I Ate The Best Brain Foods For A Week",
+    excerpt:
+      "This is what cutting out sugar and dairy and eating lots of fish and blueberries did to my productivity.",
+  },
+  {
+    url: "fastcompany.com",
+    img: './public/images/pocket-dummy/blubes.jpg',
+    title: "What Happened When I Ate The Best Brain Foods For A Week",
+    excerpt:
+      "This is what cutting out sugar and dairy and eating lots of fish and blueberries did to my productivity.",
   }
 ];
