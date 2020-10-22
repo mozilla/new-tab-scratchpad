@@ -1,8 +1,16 @@
 <script lang="ts">
+  let value = ''
+
+  function search() {
+    if (value.length < 1) {
+      return
+    }
+    window.location.href = `https://www.google.com/search?client=firefox-b-d&q=${encodeURI(value)}`
+  }
 </script>
 
 <style lang="scss">
-  section {
+  form {
     box-shadow: var(--shadow-large);
     width: 75%;
     height: 52px;
@@ -30,4 +38,4 @@
   }
 </style>
 
-<section><input placeholder="Search the web" /></section>
+<form on:submit|preventDefault={search}><input placeholder="Search the web" bind:value /></form>
