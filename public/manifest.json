@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Newt Proto",
+  "description": "New Tab prototype for Firefox",
+  "version": "0.0.1",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ACD99BB7-DEAD-4483-89CF-7E72D7DA4AB9}"
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "chrome_settings_overrides" : {
+    "homepage": "index.html"
+  },
+  "permissions": ["theme", "storage", "topSites"]
+}

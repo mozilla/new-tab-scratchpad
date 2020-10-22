@@ -1,97 +1,99 @@
-<script>
-  import { topSitesData, pocketData } from './data/index.js'
-  import Background from './components/Background.svelte';
-  import Customizer from './components/Customizer.svelte';
+<script lang="ts">
+  import theme from './stores/theme'
+
+  import Button from './components/Button.svelte'
+  import PreferencesIcon from './assets/icons/preferences.svg'
+
+  import Background from './components/Background.svelte'
+  import CustomizeMenu from './components/CustomizeMenu/index.svelte'
+
   import FirefoxLogo from './components/FirefoxLogo.svelte'
-  import PocketCard from './components/PocketCard.svelte';
-  import SearchBox from './components/SearchBox.svelte'
-  import TopSite from './components/TopSite.svelte';
-  import PocketIcon from './components/svg/PocketIcon.svelte';
+  import Search from './components/Search.svelte'
+  import TopSites from './components/TopSites.svelte'
+  import Pocket from './components/Pocket.svelte'
+
+  const styleElement = document.createElement('style')
+  document.head.appendChild(styleElement)
+  console.log(styleElement)
+
+  theme.subscribe((theme) => {
+    let newStyle = ''
+
+    if (theme.newtColors) {
+      newStyle += ':root {\n'
+      Object.entries(theme.newtColors).forEach(([key, value]) => {
+        newStyle += `--${key}: ${value};\n`
+      })
+      newStyle += '}\n'
+    }
+
+    if (theme.newtColorsDark) {
+      newStyle += '@media (prefers-color-scheme: dark) {\n'
+      newStyle += ':root {\n'
+      Object.entries(theme.newtColorsDark).forEach(([key, value]) => {
+        newStyle += `--${key}: ${value};\n`
+      })
+      newStyle += '}}\n'
+    }
+
+    ;(styleElement as any).replaceChildren(document.createTextNode(newStyle))
+  })
+
+  let customizeMenuOpen = true
 </script>
 
-<style>
+<style lang="scss">
+  :global {
+    @import './global.scss';
+  }
+
+  :global(body) {
+    background: var(--background-primary);
+  }
+
+  header {
+    padding: 16px;
+    text-align: right;
+    position: relative;
+  }
+
   main {
+    display: flex;
     align-items: center;
-    display: flex;
+    max-width: 920px;
     flex-direction: column;
-    justify-content: center;
-    margin: 184px auto;
-    min-height: 100vh;
+    // TODO: Something better
+    margin: 6em auto 0 auto;
     position: relative;
-    width: 960px;
+    :global {
+      > * {
+        margin-bottom: 3em;
+      }
+    }
+    transition: transform 200ms ease;
+    &.asideOpen {
+      transform: translateX(-216px);
+    }
   }
-
-  .top-site-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--ts-column-count), var(--ts-width));
-    grid-template-rows: repeat(1, 166px);
-    margin: calc(5 * var(--base-grid)) 0 calc(5 * var(--base-grid));
-  }
-
-  .pocket-grid {
-    padding: 0 var(--ts-pad);
-    display: grid;
-    grid-gap: 36px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .pocket-section-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 0 calc(var(--base-grid) * 1.5);
-  }
-
-  h3,
-  h4 {
-    margin: 0;
-  }
-
-  h3 {
-    font-size: 15px;
-  }
-
-  h3 a {
-    margin-left: 10px;
-    font-size: 14px;
-  }
-
-  h4 {
-    font-size: 12px;
-    font-weight: normal;
-  }
-
-  h4 span {
-    font-weight: 700;
-  }
-
-  .pi {
-    position: relative;
-    top: 4px;
-    margin: 0 4px 0 2px;
-  }
-
-
 </style>
 
-<Customizer />
+<!-- {#if $theme.newtColorsDark}<style>
+  @media (prefers-color-scheme: dark) {
+  }
+</style>{/if} -->
 
-<main>
-  <Background/>
-  <FirefoxLogo/>
-  <SearchBox />
-  <div class="top-site-grid">
-    {#each topSitesData as ts}
-      <TopSite title={ts.title} url={ts.url} />
-    {/each}
-  </div>
-  <div class="pocket-section-header">
-    <h3>Best of the Web<a href="#">Learn More</a></h3>
-    <h4>Powered by <span class="pi"><PocketIcon/></span><span>Pocket</span></h4>
-  </div>
-  <div class="pocket-grid">
-    {#each pocketData as pocket}
-      <PocketCard />
-    {/each}
-  </div>
+<Background />
+
+{#if customizeMenuOpen}
+  <CustomizeMenu on:close={() => (customizeMenuOpen = false)} />
+{/if}
+
+<header>
+  <Button on:click={() => (customizeMenuOpen = true)} icon={PreferencesIcon}>Customize</Button>
+</header>
+<main class:asideOpen={customizeMenuOpen}>
+  <FirefoxLogo />
+  <Search />
+  <TopSites />
+  <Pocket />
 </main>

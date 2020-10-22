@@ -1,0 +1,12 @@
+<!-- toolbarBg, toolbarFieldBg, background, tabLine, toolbarFieldColor, iconColor -->
+<svg class="themePreview" width="102" height="66" viewBox="0 0 102 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect class="background" width="102" height="66" fill="#202340"/>
+<rect class="toolbarBg" y="29" width="102" height="37" fill="#F9F9FA"/>
+<path class="toolbarFieldBg" d="M33 40C33 37.2386 35.1159 35 37.726 35H102V60H37.726C35.1159 60 33 57.7614 33 55V40Z" fill="#FFFFFF"/>
+<path class="background" d="M102 37H38C36.3431 37 35 38.3431 35 40V55C35 56.6569 36.3431 58 38 58H102V60H38C35.2386 60 33 57.7614 33 55V40C33 37.2386 35.2386 35 38 35H102V37Z" fill="#202340"/>
+<rect class="toolbarBg" x="29" y="4" width="73" height="25" fill="#F9F9FA"/>
+<rect class="tabLine" x="29" width="73" height="4" fill="#0A84FF"/>
+<path class="iconColor" d="M43 16.5C43 15.1193 44.1193 14 45.5 14H102V19H45.5C44.1193 19 43 17.8807 43 16.5V16.5Z" fill="#3D3D3D"/>
+<path class="toolbarFieldColor" d="M43 47.5C43 46.1193 44.1193 45 45.5 45H102V50H45.5C44.1193 50 43 48.8807 43 47.5V47.5Z" fill="#000000"/>
+<path class="iconColor" d="M16.5 53C19.5376 53 22 50.5376 22 47.5C22 44.4624 19.5376 42 16.5 42C13.4624 42 11 44.4624 11 47.5C11 50.5376 13.4624 53 16.5 53Z" fill="#3D3D3D"/>
+</svg>

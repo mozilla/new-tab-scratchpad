@@ -1,0 +1,79 @@
+:root {
+  --shadow-regular: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-large: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-verylarge: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+
+  --border-radius-tiny: 2px;
+  --border-radius-small: 4px;
+  --border-radius-regular: 8px;
+  --border-radius-large: 15px;
+
+  --font-size-small: 12px;
+  --font-size-regular: 14px;
+  --font-size-large: 17px;
+  --font-size-verylarge: 36px;
+
+  // Theme colors
+  --background-primary: #f9f9fa;
+  --background-secondary: #ffffff;
+  --card-background: #ffffff;
+  --card-color-primary: #20123a;
+  --card-color-secondary: #20123a80;
+  --background-icon: #cbcbcb;
+  --button-primary-background: #0060df;
+  --button-primary-color: #ffffff;
+  // Can be overridden by background
+  --button-secondary-background: #efefef75;
+  --button-secondary-color: #313131;
+  --color-primary: #484848;
+  --color-secondary: #48484880;
+}
+
+body,
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+  font-size: var(--font-size-regular);
+  margin: 0;
+  height: 100%;
+  color: var(--color-primary);
+}
+
+body {
+  position: relative;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.sectionHeader {
+  font-weight: bold;
+  font-size: var(--font-size-large);
+}
+
+.customColors svg.themePreview {
+  .toolbarBg {
+    fill: var(--toolbarBg);
+  }
+  .toolbarFieldBg {
+    fill: var(--toolbarFieldBg);
+  }
+  .background {
+    fill: var(--background);
+  }
+  .tabLine {
+    fill: var(--tabLine);
+  }
+  .toolbarFieldColor {
+    fill: var(--toolbarFieldColor);
+  }
+  .iconColor {
+    fill: var(--iconColor);
+  }
+}

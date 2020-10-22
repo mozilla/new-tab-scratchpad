@@ -1,0 +1,9 @@
+{
+  "include": ["src/**/*", "svg.d.ts"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "compilerOptions": {
+    "target": "es2019",
+    "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"]
+  }
+}
