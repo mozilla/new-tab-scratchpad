@@ -41,9 +41,9 @@
 
 {#if $settings.testing_enabled}
 <section class="contentOption">
-  <label for="snippetsSwitch" class="hBar">
+  <label for="testSwitch" class="hBar">
     <h3 class="fillSpaceAfter">Computer-Aided Enrichment</h3>
-    <Checkbox id="snippetsSwitch" type="switch" bind:checked={$settings.testing_enabled} />
+    <Checkbox id="testSwitch" type="switch" bind:checked={$settings.testing_enabled} />
   </label>
   <div class="message">
     {@html Glados}
