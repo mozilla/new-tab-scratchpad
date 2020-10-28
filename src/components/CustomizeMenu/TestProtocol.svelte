@@ -63,8 +63,8 @@
   </div>
 </section>
 {:else}
-  <label for="snippetsSwitch" class="hBar enableEnrichment">
+  <label for="testSwitch" class="hBar enableEnrichment">
     <p class="fillSpaceAfter">Computer-Aided Enrichment</p>
-    <Checkbox id="snippetsSwitch" type="switch" bind:checked={$settings.testing_enabled} />
+    <Checkbox id="testSwitch" type="switch" bind:checked={$settings.testing_enabled} />
   </label>
 {/if}
