@@ -1,0 +1,17 @@
+<svg width="212" height="45" viewBox="0 0 212 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="67" height="44" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="72.5" y="0.5" width="67" height="44" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="144.5" y="0.5" width="67" height="44" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<path d="M29 21H39M29 13L34 18M34 18L39 13M34 18V7" stroke="var(--card-color-primary)" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M99.5 15C99.5 11.4101 102.41 8.5 106 8.5C109.59 8.5 112.5 11.4101 112.5 15C112.5 18.5899 109.59 21.5 106 21.5C102.41 21.5 99.5 18.5899 99.5 15ZM106 7.5C101.858 7.5 98.5 10.8579 98.5 15C98.5 19.1421 101.858 22.5 106 22.5C110.142 22.5 113.5 19.1421 113.5 15C113.5 10.8579 110.142 7.5 106 7.5ZM106 11.5C106 11.2239 105.776 11 105.5 11C105.224 11 105 11.2239 105 11.5V15.5C105 15.7761 105.224 16 105.5 16H109.5C109.776 16 110 15.7761 110 15.5C110 15.2239 109.776 15 109.5 15H106V11.5Z" fill="var(--card-color-primary)"/>
+<path d="M177.301 7.45452C177.587 6.84849 178.413 6.84849 178.699 7.45452L180.567 11.4152C180.681 11.6558 180.9 11.8226 181.154 11.8612L185.332 12.4963C185.971 12.5935 186.226 13.4154 185.764 13.8871L182.741 16.9701C182.557 17.1574 182.473 17.4273 182.517 17.6918L183.23 22.045C183.339 22.7111 182.671 23.219 182.099 22.9045L178.363 20.8492C178.136 20.7243 177.864 20.7243 177.637 20.8492L173.901 22.9045C173.329 23.219 172.661 22.7111 172.77 22.045L173.483 17.6918C173.527 17.4273 173.443 17.1574 173.259 16.9701L170.236 13.8871C169.774 13.4154 170.029 12.5935 170.668 12.4963L174.846 11.8612C175.1 11.8226 175.319 11.6558 175.433 11.4152L177.301 7.45452Z" stroke="var(--card-color-primary)"/>
+<line opacity="0.5" x1="6.5" y1="33.5" x2="22.5" y2="33.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line opacity="0.5" x1="78.5" y1="33.5" x2="94.5" y2="33.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line opacity="0.5" x1="150.5" y1="33.5" x2="166.5" y2="33.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="6.5" y1="38.5" x2="59.5" y2="38.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="78.5" y1="38.5" x2="131.5" y2="38.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="150.5" y1="38.5" x2="203.5" y2="38.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="1" y1="27.5" x2="67" y2="27.5" stroke="var(--card-color-primary)"/>
+<line x1="73" y1="27.5" x2="139" y2="27.5" stroke="var(--card-color-primary)"/>
+<line x1="145" y1="27.5" x2="211" y2="27.5" stroke="var(--card-color-primary)"/>
+</svg>

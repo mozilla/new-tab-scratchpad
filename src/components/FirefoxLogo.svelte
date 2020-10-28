@@ -1,5 +1,7 @@
 <script lang="ts">
+  import BrowserLogo from '../assets/firefox-browser-logo.svg'
   import Logo from '../assets/firefox-logo.svg'
+  import settings from '../stores/general'
 </script>
 
 <style lang="scss">
@@ -9,6 +11,12 @@
   }
 </style>
 
-<div>
-  {@html Logo}
-</div>
+{#if $settings.testing_logo === 0}
+  <div>
+    {@html BrowserLogo}
+  </div>
+{:else if $settings.testing_logo === 1}
+  <div>
+    {@html Logo}
+  </div>
+{/if}

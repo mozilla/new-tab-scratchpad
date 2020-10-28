@@ -1,6 +1,9 @@
 <script lang="ts">
   export let icon = null
   export let type = 'secondary'
+  export { className as class }
+
+  let className = ''
 </script>
 
 <style lang="scss">
@@ -13,7 +16,7 @@
     padding: 8px 12px;
     display: inline-flex;
     :global(svg) {
-      margin-right: 4px;
+      margin-inline-end: 4px;
     }
     &.primary {
       background: var(--button-primary-background);
@@ -22,7 +25,7 @@
   }
 </style>
 
-<button on:click class={type}>
+<button class="{type} {className}" on:click>
   {#if icon}
     {@html icon}
   {/if}

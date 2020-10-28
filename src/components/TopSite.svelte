@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { bubble } from 'svelte/internal'
+  import { createEventDispatcher } from 'svelte';
+
+  import tippyTopMap from '../data/tippy-top'
   import PinIcon from '../assets/icons/glyph-pin.svg'
   import MoreIcon from '../assets/icons/more.svg'
   import NewIcon from '../assets/icons/new.svg'
 
-  export let site = ''
-  export let url = null
-  export let icon = null
-  export let pinned = false
-  export let sponsored = false
+  const dispatch = createEventDispatcher();
+
+  export let site = null
 </script>
 
 <style lang="scss">
@@ -17,6 +17,7 @@
     transition: background 250ms ease;
     border-radius: var(--border-radius-regular);
     position: relative;
+    overflow: hidden;
     button {
       position: absolute;
       right: 2px;
@@ -26,11 +27,11 @@
       padding: 0;
       width: 16px;
       height: 16px;
-      transition: opacity 250ms ease 250ms;
+      transition: opacity 250ms ease 50ms;
       opacity: 0;
-    }
-    button:focus {
-      opacity: 1;
+      &:focus {
+        opacity: 1;
+      }
     }
     .card {
       display: flex;
@@ -48,6 +49,10 @@
         height: 48px;
         background-size: 100%;
         border-radius: var(--border-radius-small);
+        fill: currentColor;
+        &.heavy-upscale {
+          image-rendering: crisp-edges;
+        }
         &.favicon {
           width: 16px;
           height: 16px;
@@ -129,25 +134,33 @@
   }
 </style>
 
-<div class="wrapper" class:empty={url === null}>
-  <div class="card">
-    {#if url === null}
+<div class="wrapper" class:empty={site.name === null}>
+  {#if site.name === null}
+    <div class="card">
       <div class="add">
         {@html NewIcon}
       </div>
-    {:else if icon}
-      <div class="icon {icon.size}" style="background-image: url('/sites/{icon.name}')" />
-    {:else}
-      <div class="icon empty"><span>{site[0].toUpperCase()}</span></div>
-    {/if}
-  </div>
-  {#if url !== null}
-    <div class="labels">
-      <span class="name">{#if pinned}
-          {@html PinIcon}
-        {/if}{site}</span>
-      {#if sponsored}<span class="sponsored">Sponsored</span>{/if}
     </div>
-    <button>{@html MoreIcon}</button>
+  {:else}
+    <a draggable="false" href={site.url} class="card">
+      {#if tippyTopMap.has(site.id)}
+      <div
+        class="icon"
+        style="background-image: url({tippyTopMap.get(site.id)})" />
+      {:else if site.favicon}
+        <div
+          class="icon"
+          style="background-image: url({site.favicon})" />
+      {:else}
+        <div class="icon empty"><span>{site.name[0].toUpperCase()}</span></div>
+      {/if}
+    </a>
+    <div class="labels">
+      <span class="name">{#if site.pinned}
+          {@html PinIcon}
+        {/if}{site.name}</span>
+      {#if site.sponsored}<span class="sponsored">Sponsored</span>{/if}
+    </div>
+    <button on:click={() => dispatch('unpin')}>{@html MoreIcon}</button>
   {/if}
 </div>

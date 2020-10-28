@@ -5,6 +5,7 @@
 
 <style lang="scss">
   .article {
+    display: block;
     color: var(--card-color-primary);
     box-shadow: var(--shadow-regular);
     border-radius: var(--border-radius-regular);
@@ -41,11 +42,11 @@
   }
 </style>
 
-<div class="article">
+<a class="article" href={article.url}>
   <div class="thumbnail" style="background-image: url('{article.image_src}')" />
   <div class="info">
     <p class="domain">{article.domain}</p>
     <header>{article.title}</header>
     <p class="excerpt">{article.excerpt}</p>
   </div>
-</div>
+</a>

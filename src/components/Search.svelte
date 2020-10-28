@@ -25,10 +25,14 @@
       font-size: var(--font-size-regular);
       border-radius: var(--border-radius-regular);
       padding: 0;
-      padding-left: calc(16px + 24px + 16px);
+      padding-inline-start: calc(16px + 24px + 16px);
       background-size: 24px;
       background-repeat: no-repeat;
-      background-position: 16px center;
+      background-position-y: center;
+      background-position-x: 16px;
+      &:dir(rtl) {
+        background-position-x: right 16px;
+      }
       background-image: url('/search-providers/google.ico');
       &:focus {
         box-shadow: inset 0 0 0 2px highlight;

@@ -1,9 +1,5 @@
 import { writable } from 'svelte/store'
-
 import themes from '../data/themes'
-
-const BG_KEY = 'background'
-const DEFAULT = 'auto'
 
 type Theme = browser.theme.Theme
 

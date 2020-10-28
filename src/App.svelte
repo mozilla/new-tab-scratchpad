@@ -1,5 +1,6 @@
 <script lang="ts">
   import theme from './stores/theme'
+  import settings from './stores/general'
 
   import Button from './components/Button.svelte'
   import PreferencesIcon from './assets/icons/preferences.svg'
@@ -11,10 +12,12 @@
   import Search from './components/Search.svelte'
   import TopSites from './components/TopSites.svelte'
   import Pocket from './components/Pocket.svelte'
+  import Snippets from './components/Snippets.svelte'
+
+  $: document.dir = $settings.testing_rtl ? 'rtl' : 'auto'
 
   const styleElement = document.createElement('style')
   document.head.appendChild(styleElement)
-  console.log(styleElement)
 
   theme.subscribe((theme) => {
     let newStyle = ''
@@ -39,7 +42,9 @@
     ;(styleElement as any).replaceChildren(document.createTextNode(newStyle))
   })
 
-  let customizeMenuOpen = true
+  let customizeMenuOpen = false
+
+  $: document.documentElement.setAttribute('data-customize', String(customizeMenuOpen))
 </script>
 
 <style lang="scss">
@@ -51,10 +56,32 @@
     background: var(--background-primary);
   }
 
+  .scrollWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  :global([data-customize='true']) .scrollWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+
   header {
+    align-self: stretch;
     padding: 16px;
-    text-align: right;
-    position: relative;
+    text-align: end;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    @media (max-width: 1224px) {
+      position: relative;
+    }
   }
 
   main {
@@ -63,37 +90,46 @@
     max-width: 920px;
     flex-direction: column;
     // TODO: Something better
-    margin: 6em auto 0 auto;
+    margin: 5em 2em 0 2em;
     position: relative;
     :global {
       > * {
         margin-bottom: 3em;
       }
     }
-    transition: transform 200ms ease;
-    &.asideOpen {
-      transform: translateX(-216px);
+    @media (max-height: 700px) {
+      margin-top: 0;
+    }
+    @media (max-width: 900px) {
+      margin-top: 0;
     }
   }
 </style>
 
-<!-- {#if $theme.newtColorsDark}<style>
-  @media (prefers-color-scheme: dark) {
-  }
-</style>{/if} -->
-
 <Background />
 
-{#if customizeMenuOpen}
-  <CustomizeMenu on:close={() => (customizeMenuOpen = false)} />
-{/if}
+<div class="scrollWrapper">
+  {#if customizeMenuOpen}
+    <CustomizeMenu on:close={() => (customizeMenuOpen = false)} />
+  {/if}
 
-<header>
-  <Button on:click={() => (customizeMenuOpen = true)} icon={PreferencesIcon}>Customize</Button>
-</header>
-<main class:asideOpen={customizeMenuOpen}>
-  <FirefoxLogo />
-  <Search />
-  <TopSites />
-  <Pocket />
-</main>
+  <header>
+    <Button on:click={() => (customizeMenuOpen = true)} icon={PreferencesIcon}>Customize</Button>
+  </header>
+  <main class="moveWhenCustomize" class:asideOpen={customizeMenuOpen}>
+    <FirefoxLogo />
+    {#if $settings.search_enabled}
+      <Search />
+    {/if}
+    {#if $settings.topSites_enabled}
+      <TopSites />
+    {/if}
+    {#if $settings.pocket_enabled}
+      <Pocket />
+    {/if}
+  </main>
+
+  {#if $settings.snippets_enabled}
+    <Snippets />
+  {/if}
+</div>

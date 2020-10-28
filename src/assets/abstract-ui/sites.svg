@@ -1,0 +1,10 @@
+<svg width="248" height="32" viewBox="0 0 248 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="108.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="180.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="36.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="216.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="72.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="144.5" y="0.5" width="31" height="31" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<path d="M232 10V22M226 16H238" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+</svg>

@@ -1,7 +1,9 @@
+// Breakpoints: 1024
+
 :root {
-  --shadow-regular: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
-  --shadow-large: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
-  --shadow-verylarge: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-regular: 0px 3px 8px rgba(9, 32, 77, 0.15), 0px 0px 3px rgba(29, 17, 51, 0.15);;
+  --shadow-large: 0px 3px 8px rgba(9, 32, 77, 0.15), 0px 0px 3px rgba(29, 17, 51, 0.15);
+  --shadow-verylarge: 0px 0px 64px rgba(9, 32, 77, 0.15), 0px 0px 24px rgba(29, 17, 51, 0.15);
 
   --border-radius-tiny: 2px;
   --border-radius-small: 4px;
@@ -13,17 +15,24 @@
   --font-size-large: 17px;
   --font-size-verylarge: 36px;
 
+
+  --widget-max-width: 920px;
+  @media (max-width: 1024px) {
+    --widget-max-width: auto;
+  }
+
   // Theme colors
-  --background-primary: #f9f9fa;
-  --background-secondary: #ffffff;
-  --card-background: #ffffff;
-  --card-color-primary: #20123a;
-  --card-color-secondary: #20123a80;
-  --background-icon: #cbcbcb;
-  --button-primary-background: #0060df;
-  --button-primary-color: #ffffff;
+  --background-primary: #F9F9FA;
+  --background-secondary: #FFFFFF;
+  --card-background: #FFFFFF;
+  --card-background-a9: #FFFFFFE6;
+  --card-color-primary: #20123A;
+  --card-color-secondary: #20123A80;
+  --background-icon: #CBCBCB;
+  --button-primary-background: #0060DF;
+  --button-primary-color: #FFFFFF;
   // Can be overridden by background
-  --button-secondary-background: #efefef75;
+  --button-secondary-background: #EFEFEF75;
   --button-secondary-color: #313131;
   --color-primary: #484848;
   --color-secondary: #48484880;
@@ -41,11 +50,18 @@ html {
 
 body {
   position: relative;
+  min-width: 320px;
+}
+
+a {
+  color: var(--button-primary-background);
+  text-decoration: none;
 }
 
 button,
 input,
-textarea {
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -75,5 +91,48 @@ textarea {
   }
   .iconColor {
     fill: var(--iconColor);
+  }
+}
+
+.hBar {
+  display: flex;
+  align-items: center;
+  > :not(:first-child) {
+    margin-inline-start: 8px;
+  }
+  &.bigMargin > :not(:first-child) {
+    margin-inline-start: 16px;
+  }
+  .fillSpace {
+    margin-inline-start: auto;
+  }
+  .fillSpaceAfter {
+    margin-inline-end: auto;
+  }
+}
+
+.moveWhenCustomize {
+  transition: transform 200ms ease;
+}
+
+:global([data-customize="true"]) {
+  .moveWhenCustomize {
+    transform: translateX(-216px);
+    &:dir(rtl) {
+      transform: translateX(216px);
+    }
+  }
+}
+
+.contentOption {
+  background: var(--background-primary);
+  border: 2px solid var(--background-icon);
+  border-radius: var(--border-radius-regular);
+  padding: 16px;
+  margin-bottom: 16px;
+  h3 {
+    font-size: var(--font-size-regular);
+    font-weight: 600;
+    margin: 0;
   }
 }

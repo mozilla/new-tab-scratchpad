@@ -1,0 +1,7 @@
+<svg width="244" height="31" viewBox="0 0 244 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0.5H236C240.142 0.5 243.5 3.85786 243.5 8V30.5H0.5V8C0.5 3.85786 3.85786 0.5 8 0.5Z" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="17.5" y="9.5" width="12" height="12" rx="3.5" stroke="var(--card-color-primary)"/>
+<line opacity="0.5" x1="35.5" y1="10.5" x2="51.5" y2="10.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="35.5" y1="15.5" x2="201.5" y2="15.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="35.5" y1="20.5" x2="166.5" y2="20.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+</svg>

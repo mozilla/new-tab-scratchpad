@@ -1,0 +1,20 @@
+<svg width="212" height="65" viewBox="0 0 212 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="67" height="64" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="72.5" y="0.5" width="67" height="64" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<rect x="144.5" y="0.5" width="67" height="64" rx="7.5" fill="var(--card-background)" stroke="var(--card-color-primary)"/>
+<line opacity="0.5" x1="6.5" y1="42.5" x2="22.5" y2="42.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line opacity="0.5" x1="78.5" y1="42.5" x2="94.5" y2="42.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line opacity="0.5" x1="150.5" y1="42.5" x2="166.5" y2="42.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="6.5" y1="53.5" x2="51.5" y2="53.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="78.5" y1="53.5" x2="129.5" y2="53.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="150.5" y1="53.5" x2="183.5" y2="53.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="7" y1="48" x2="59" y2="48" stroke="var(--card-color-primary)" stroke-width="2" stroke-linecap="round"/>
+<line x1="79" y1="48" x2="108" y2="48" stroke="var(--card-color-primary)" stroke-width="2" stroke-linecap="round"/>
+<line x1="151" y1="48" x2="201" y2="48" stroke="var(--card-color-primary)" stroke-width="2" stroke-linecap="round"/>
+<line x1="6.5" y1="58.5" x2="33.5" y2="58.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="78.5" y1="58.5" x2="92.5" y2="58.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="150.5" y1="58.5" x2="194.5" y2="58.5" stroke="var(--card-color-primary)" stroke-linecap="round"/>
+<line x1="1" y1="36.5" x2="67" y2="36.5" stroke="var(--card-color-primary)"/>
+<line x1="73" y1="36.5" x2="139" y2="36.5" stroke="var(--card-color-primary)"/>
+<line x1="145" y1="36.5" x2="211" y2="36.5" stroke="var(--card-color-primary)"/>
+</svg>
